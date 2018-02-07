@@ -1,21 +1,25 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ModelsModModule } from './../models-mod/models-mod.module';
+import { Component, OnInit, Output } from '@angular/core';
+import { NgModule } from '@angular/core';
+import * as _ from 'lodash';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
-  task: any;
-  tasks: Array<ModelsModModule>;
-  constructor() {}
-  @Output()
-  addTask: EventEmitter<FormComponent> = new EventEmitter<FormComponent>();
-  onAddTask(newTask: { action: string }): void {
-    const action = new ModelsModModule(null, newTask.action);
+export class FormComponent {
+  valueFromInput = '';
+  todos = [];
 
-    this.addTask.emit(action);
-    console.log('add task method', action);
+  onClick() {
+    if (!_.isEmpty(this.valueFromInput)) {
+      this.todos.push(this.valueFromInput);
+    }
   }
-  ngOnInit() {}
+
+  onDelete(todo: string) {
+    const index = this.todos.indexOf(todo);
+    if (index > -1) {
+      this.todos.splice(index, 1);
+    }
+  }
 }

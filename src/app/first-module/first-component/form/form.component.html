@@ -8,10 +8,16 @@
     <form>
       <div class="form-group">
         <label for="action">Action</label>
-        <input *ngFor="let task of tasks" type="text" class="form-control" id="action" placeholder="Action" #action>
+        <input type="text" [(ngModel)]="valueFromInput">
       </div>
+      <ul>
+        <li *ngFor='let todo of todos'>{{ todo }}
+          <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Add</button>
+        </li>
 
-      <button type="button" class="btn btn-primary">Add</button>
+      </ul>
+
+      <button type="button" class="btn btn-primary" (click)="onClick()">Add</button>
     </form>
   </div>
 </div>
