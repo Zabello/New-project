@@ -9,6 +9,8 @@ import * as _ from 'lodash';
 export class FormComponent {
   valueFromInput = '';
   todos = [];
+  editMode = '';
+  changedInput = '';
 
   onClick() {
     if (!_.isEmpty(this.valueFromInput)) {
@@ -21,5 +23,10 @@ export class FormComponent {
     if (index > -1) {
       this.todos.splice(index, 1);
     }
+  }
+  onSave(todo: string) {
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1, this.changedInput);
+    this.editMode = '';
   }
 }

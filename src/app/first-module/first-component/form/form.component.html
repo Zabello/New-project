@@ -5,19 +5,24 @@
     </h4>
   </div>
   <div class="panel-body">
-    <form>
-      <div class="form-group">
-        <label for="action">Action</label>
-        <input type="text" [(ngModel)]="valueFromInput">
-      </div>
-      <ul>
-        <li *ngFor='let todo of todos'>{{ todo }}
-          <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Add</button>
-        </li>
 
-      </ul>
+    <div class="form-group">
+      <label for="action">Action</label>
+      <input type="text" [(ngModel)]="valueFromInput">
+    </div>
+    <ul>
+      <li *ngFor='let todo of todos'>{{ todo }}
+        <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Delete</button>
+        <button type="button" class="btn btn-primary" (click)='editMode=todo'>Edit</button>
+        <div *ngIf='editMode === todo'>
+          <input type="text" [(ngModel)]="changedInput">
+          <button type="button" class="btn btn-primary" (click)='onSave(todo)'>Save</button>
+        </div>
+      </li>
 
-      <button type="button" class="btn btn-primary" (click)="onClick()">Add</button>
-    </form>
+    </ul>
+
+    <button type="button" class="btn btn-primary" (click)="onClick()">Add</button>
+
   </div>
 </div>
