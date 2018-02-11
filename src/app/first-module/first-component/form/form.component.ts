@@ -29,4 +29,16 @@ export class FormComponent {
     this.todos.splice(index, 1, this.changedInput);
     this.editMode = '';
   }
+  blaster() {
+    if (!_.isEmpty(this.valueFromInput)) {
+      if (!_.isEmpty(this.editMode)) {
+        const index = this.todos.indexOf(this.editMode);
+        this.todos.splice(index, 1, this.valueFromInput);
+        this.valueFromInput = '';
+        this.editMode = '';
+      } else {
+        this.todos.push(this.valueFromInput);
+      }
+    }
+  }
 }
