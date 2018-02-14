@@ -10,18 +10,15 @@
       <label for="action">Action</label>
       <input type="text" [(ngModel)]="valueFromInput">
     </div>
+
     <ul>
-      <li *ngFor='let todo of todos'>{{ todo }}
-        <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Delete</button>
-        <button type="button" class="btn btn-primary" (click)='editMode=todo'>Edit</button>
-        <div *ngIf='editMode === todo'>
-          <input type="text" [(ngModel)]="changedInput">
-          <button type="button" class="btn btn-primary" (click)='onSave(todo)'>Save</button>
-        </div>
+      <li *ngFor='let Todo of todos'>{{ Todo.title }}
+        <button type="button" class="btn btn-primary" (click)="onDelete(Todo)">Delete</button>
+        <button type="button" class="btn btn-primary" (click)='editMode=Todo; valueFromInput = Todo.title;'>Edit</button>
+
       </li>
 
     </ul>
-
     <button type="button" class="btn btn-primary" (click)="blaster()">Add</button>
 
   </div>
