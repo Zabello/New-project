@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor='let todo of todos'>{{ todo.title }}
+    <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Delete</button>
+    <button type="button" class="btn btn-primary" (click)='onEdit(todo)'>Edit</button>
+
+  </li>
+
+</ul>

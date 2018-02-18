@@ -11,14 +11,7 @@
       <input type="text" [(ngModel)]="valueFromInput">
     </div>
 
-    <ul>
-      <li *ngFor='let Todo of todos'>{{ Todo.title }}
-        <button type="button" class="btn btn-primary" (click)="onDelete(Todo)">Delete</button>
-        <button type="button" class="btn btn-primary" (click)='editMode=Todo; valueFromInput = Todo.title;'>Edit</button>
 
-      </li>
-
-    </ul>
     <button type="button" class="btn btn-primary" (click)="blaster()">Add</button>
 
   </div>

@@ -1,3 +1,4 @@
-
-<h4>Этот текст написан в компоненте first-component.component, которая находится в папке first-module</h4>
-<app-form></app-form>
+<h4>
+  Этот текст написан в компоненте first-component.component, которая находится в папке first-module</h4>
+<app-todo-edit [todo]='activeItem' (add)='onAdd($event)'></app-todo-edit>
+<app-todos-list [todos]="todosList" (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'> </app-todos-list>
