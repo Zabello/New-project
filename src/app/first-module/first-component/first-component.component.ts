@@ -18,7 +18,7 @@ export class FirstComponentComponent implements OnInit {
     todo.title = 'test2';
     this.todosList.push(todo);
     this.todosList.push(todo1);
-    this.activeItem = this.todosList[0];
+    // this.activeItem = this.todosList[0];
   }
 
   ngOnInit() {}
