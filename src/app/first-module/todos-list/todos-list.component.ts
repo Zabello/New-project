@@ -8,7 +8,7 @@ import { Todo } from '../first-component/todo';
 })
 export class TodosListComponent implements OnInit {
   @Input() todos: Todo[];
-  // принимает входные данные todo типа Todo
+  // принимает входные данные todos типа Todo
   @Output() edit: EventEmitter<Todo> = new EventEmitter<Todo>();
   // передаем родительскому компоненту событие с свойсвом  типа EventEmitter значением todo типа Todo
   @Output() delete: EventEmitter<Todo> = new EventEmitter<Todo>();
@@ -19,9 +19,9 @@ export class TodosListComponent implements OnInit {
   onEdit(todo: Todo) {
     this.edit.emit(todo);
   }
-  // обрабатываем и создаем событие
+  // обрабатываем и создаем событие перпедавая значение todo в главный компанент
   onDelete(todo: Todo) {
     this.delete.emit(todo);
   }
-  // обрабатываем и создаем событие
+  // обрабатываем и создаем событие перпедавая значение todo в главный компанент
 }

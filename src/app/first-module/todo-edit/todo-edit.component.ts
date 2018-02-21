@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 })
 export class TodoEditComponent implements OnInit {
   @Input() todo: Todo = new Todo();
-  // принимает входные данные todo и создает новый параметр с свойствами Todo
+  // принимает входные данные todo и создает новый параметр с свойствами Todo ВОПРОС: Уточнить для чего = new Todo().
   @Output() add: EventEmitter<Todo> = new EventEmitter<Todo>();
   // передаем родительскому компоненту событие с свойсвом  типа EventEmitter значением todo типа Todo
   constructor() {}
@@ -18,6 +18,5 @@ export class TodoEditComponent implements OnInit {
   onAdd() {
     this.add.emit(this.todo);
   }
-  // обрабатываем и создаем событие
-
+  // обрабатываем и создаем событие перпедавая значение todo в главный компанент
 }

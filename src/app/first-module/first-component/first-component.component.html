@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-5">
       <app-todo-edit [todo]='activeItem' (add)='onAdd($event)'></app-todo-edit>
-      <!-- Привязка свойства элемента html [todo] к значению компонента activeItem, привязка метода компанента (add) к событию onAdd($event) это событие изменения или добавления введенного значения-->
+      <!-- [todo]='activeItem' передается в todoEdit, (add)='onAdd($event) ждет объявления события с значением-->
     </div>
     <div class="col-5">
       <app-todos-list [todos]="todosList" (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'> </app-todos-list>
-      <!-- Привязка свойства элемента html [todo] к значению компонента todosList, привязка метода компанента (delete) к событию onDeleteItem($event) это событие удвления значения -->
+      <!-- [todos]="todosList" передается в todolist, (edit)='onEditItem и (delete)='onDeleteItem($event)' ждет объявления события с значением-->
     </div>
   </div>
 </div>

@@ -4,3 +4,4 @@ export class Todo {
   description: string;
   status: number;
 }
+// создает класс с типом Todo
