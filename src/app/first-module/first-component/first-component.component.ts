@@ -7,15 +7,15 @@ import * as _ from 'lodash';
   styleUrls: ['./first-component.component.css']
 })
 export class FirstComponentComponent implements OnInit {
-  todosList: Todo[];
+  todosList: Todo[] = [];
   activeItem: Todo = new Todo();
   constructor() {
     const todo = new Todo();
     todo.id = 1;
     todo.title = 'test';
     const todo1 = new Todo();
-    todo.id = 2;
-    todo.title = 'test2';
+    todo1.id = 2;
+    todo1.title = 'test2';
     this.todosList.push(todo);
     this.todosList.push(todo1);
     // this.activeItem = this.todosList[0];
@@ -25,10 +25,12 @@ export class FirstComponentComponent implements OnInit {
   onEditItem(todo: Todo) {
     this.activeItem = _.clone(todo);
   }
+  // возращает клонированное значение
   onDeleteItem(todo: Todo) {
     _.remove(this.todosList, (todo1: Todo) => {
       return todo1.id === todo.id;
     });
+    // ищет по значению Id элементы из массива, необходимые к кдалению и ужаляет их
   }
   onAdd(todo: Todo) {
     if (!_.isUndefined(todo)) {
@@ -40,12 +42,12 @@ export class FirstComponentComponent implements OnInit {
           index.title = todo.title;
         }
         this.activeItem = new Todo();
+      } else {
+        const newElement = new Todo();
+        newElement.id = this.getId();
+        newElement.title = todo.title;
+        this.todosList.push(newElement);
       }
-    } else {
-      const newElement = new Todo();
-      newElement.id = this.getId();
-      newElement.title = todo.title;
-      this.todosList.push(newElement);
     }
     this.activeItem = new Todo();
   }
@@ -53,4 +55,5 @@ export class FirstComponentComponent implements OnInit {
     const maxId: Todo = _.maxBy(this.todosList, 'id');
     return _.isUndefined(maxId) ? 0 : maxId.id + 1;
   }
+  // Создает новый id новому компоненту, по типу нахождения крайнего в массиве и добовление единицы к значению последнего id
 }

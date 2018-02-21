@@ -2,6 +2,6 @@
   <label for="action">Action</label>
   <input type="text" [(ngModel)]="todo.title">
 </div>
-
-
+<!-- определено входное свойство todo с значением title, к которому привязано текстовое поле input. Для связи используется атрибут [ngModel], который связывает значение атрибута у текстового поля со свойством todo с значением title. -->
 <button type="button" class="btn btn-primary" (click)='onAdd()'>Add</button>
+<!-- событие click вызывает метод onAdd передавая ему пустое значение -->
