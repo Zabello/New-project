@@ -42,6 +42,13 @@ export class FirstComponentComponent implements OnInit {
     });
     // принимает значение todo c типом Todo, ищет в массиве схожий компанент по id, при совпадении возращает элемент и удаляет его
   }
+  onClose(todo: Todo) {
+    if (!_.isUndefined(todo.id)) {
+      this.activeItem.title = undefined;
+    } else {
+      this.activeItem = new Todo();
+    }
+  }
   onAdd(todo: Todo) {
     if (!_.isUndefined(todo)) {
       if (!_.isUndefined(todo.id)) {

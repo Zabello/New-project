@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-5">
-      <app-todo-edit [todo]='activeItem' (add)='onAdd($event)'></app-todo-edit>
+      <app-todo-edit [todo]='activeItem' (add)='onAdd($event)' (close)='onClose($event)'></app-todo-edit>
       <!-- [todo]='activeItem' передается в todoEdit, (add)='onAdd($event) ждет объявления события с значением-->
     </div>
     <div class="col-5">
