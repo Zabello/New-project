@@ -9,20 +9,35 @@ import * as _ from 'lodash';
 })
 export class TodoEditComponent implements OnInit {
   @Input() todo: Todo = new Todo();
-  // принимает входные данные todo и создает новый параметр с свойствами Todo ВОПРОС: Уточнить для чего = new Todo().
+  @Input() itemuparray: Todo = new Todo();
   @Output() add: EventEmitter<Todo> = new EventEmitter<Todo>();
-  // передаем родительскому компоненту событие с свойсвом  типа EventEmitter значением todo типа Todo
   @Output() close: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() clear: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() cancel: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() addlist: EventEmitter<Todo> = new EventEmitter<Todo>();
   constructor() {}
 
   ngOnInit() {}
+  offAdd() {}
   onAdd() {
     if (!_.isEmpty(this.todo)) {
       this.add.emit(this.todo);
     }
   }
-  // обрабатываем и создаем событие перпедавая значение todo в главный компанент
+  onClear() {
+    if (!_.isEmpty(this.todo)) {
+      this.clear.emit(this.todo);
+    }
+  }
+  onCancel() {
+    this.cancel.emit(this.todo);
+  }
   onClose() {
     this.close.emit(this.todo);
+  }
+  onAddlist(todo: Todo) {
+    if (!_.isEmpty(this.todo)) {
+      this.addlist.emit(this.todo);
+    }
   }
 }

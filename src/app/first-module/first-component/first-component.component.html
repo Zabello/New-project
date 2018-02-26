@@ -1,12 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-5">
-      <app-todo-edit [todo]='activeItem' (add)='onAdd($event)' (close)='onClose($event)'></app-todo-edit>
-      <!-- [todo]='activeItem' передается в todoEdit, (add)='onAdd($event) ждет объявления события с значением-->
+  <div class="row onPad">
+    <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+      <app-todo-edit [itemuparray]='itemArray' [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)' (clear)='onClearItem($event)'
+        (cancel)='onCancelItem($event)' (addlist)='onAddListItem($event)'></app-todo-edit>
+
     </div>
-    <div class="col-5">
-      <app-todos-list [todos]="todosList" (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'> </app-todos-list>
-      <!-- [todos]="todosList" передается в todolist, (edit)='onEditItem и (delete)='onDeleteItem($event)' ждет объявления события с значением-->
+    <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+      <app-todos-list [todos]="todosList" (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'>
+      </app-todos-list>
+
     </div>
   </div>
 </div>

@@ -1,8 +1,21 @@
-<div class="form-group">
-  <label for="action">Action</label>
-  <input type="text" [(ngModel)]="todo.title">
+<div [hidden]="todo.id" class="onMargin">
+  <button type="button" class="btn btn-primary " (click)='onAddlist(todo)'>Добавить</button>
 </div>
-<!-- установлена двухстороняя связь для работы с знвчением переменной -->
-<button type="button" class="btn btn-primary" (click)='onAdd()'>Add</button>
-<button type="button" class="btn btn-primary" (click)='onClose()'>Close</button>
-<!-- событие click вызывает метод onAdd -->
+<div [hidden]="!todo.id">
+  <!-- [hidden]="!todo.id" -->
+  <div>
+    <span>id={{itemuparray.id}}, title={{itemuparray.title}}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="action">Action</label>
+    <input type="text" [(ngModel)]="todo.title">
+  </div>
+  <!-- установлена двухстороняя связь для работы с знвчением переменной -->
+  <button [disabled]="!todo.title" type="button" class="btn btn-primary" (click)='onAdd()'>Сохранить</button>
+  <button type="button" class="btn btn-primary" (click)='onClear()'>Очистить</button>
+  <button type="button" class="btn btn-primary" (click)='onCancel()'>Отменить</button>
+  <button type="button" class="btn btn-primary" (click)='onClose()'>Закрыть</button>
+  <!-- событие click вызывает метод onAdd -->
+
+</div>
