@@ -9,12 +9,13 @@ import * as _ from 'lodash';
 })
 export class TodoEditComponent implements OnInit {
   @Input() todo: Todo = new Todo();
+  // принимает значение пременной из Input
+
   @Input() itemuparray: Todo = new Todo();
   @Output() add: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() close: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() clear: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() cancel: EventEmitter<Todo> = new EventEmitter<Todo>();
-  @Output() addlist: EventEmitter<Todo> = new EventEmitter<Todo>();
   constructor() {}
 
   ngOnInit() {}
@@ -34,10 +35,5 @@ export class TodoEditComponent implements OnInit {
   }
   onClose() {
     this.close.emit(this.todo);
-  }
-  onAddlist(todo: Todo) {
-    if (!_.isEmpty(this.todo)) {
-      this.addlist.emit(this.todo);
-    }
   }
 }

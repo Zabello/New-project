@@ -12,7 +12,7 @@ export class TodosListComponent implements OnInit {
   @Output() edit: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   @Output() delete: EventEmitter<Todo> = new EventEmitter<Todo>();
-
+  @Input() currentEditItem: Todo = new Todo();
   constructor() {}
 
   ngOnInit() {}
