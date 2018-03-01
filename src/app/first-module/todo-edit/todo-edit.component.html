@@ -10,7 +10,7 @@
     <input type="text" [(ngModel)]="todo.title">
   </div>
   <!-- установлена двухстороняя связь для работы с знвчением переменной -->
-  <button [disabled]="!todo.title" type="button" class="btn btn-primary" (click)='onAdd()'>Сохранить</button>
+  <button [disabled]="!todo.title || !(todo.title !==itemuparray.title)" type="button" class="btn btn-primary" (click)='onAdd()'>Сохранить</button>
   <button type="button" class="btn btn-primary" (click)='onClear()'>Очистить</button>
   <button type="button" class="btn btn-primary" (click)='onCancel()'>Отменить</button>
   <button type="button" class="btn btn-primary" (click)='onClose()'>Закрыть</button>

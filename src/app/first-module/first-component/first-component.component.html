@@ -1,8 +1,13 @@
 <div class="container">
-  <div class="row onPad">
-    <div *ngIf="!editMode" class="onMargin">
-      <button type="button" class="btn btn-primary " (click)='onAddListItem()'>Добавить</button>
+  <div class="row">
+    <div class="clform col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div *ngIf="!editMode" class="onMargin">
+        <button type="button" class="btn btn-primary " (click)='onAddListItem()'>Добавить</button>
+      </div>
     </div>
+  </div>
+  <div class="row onPad">
+
     <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
       <app-todo-edit *ngIf="editMode" [itemuparray]='itemArray' [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)'
         (clear)='onClearItem($event)' (cancel)='onCancelItem($event)' (addlist)='onAddListItem($event)'></app-todo-edit>

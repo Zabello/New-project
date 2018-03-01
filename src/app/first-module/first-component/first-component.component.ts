@@ -53,6 +53,7 @@ export class FirstComponentComponent implements OnInit {
         todo.title = index.title;
       }
     }
+
     // ищет значение по масиву и после нахождения подставляет значение title.
   }
   onClearItem() {
@@ -62,6 +63,7 @@ export class FirstComponentComponent implements OnInit {
   onCloseItem() {
     this.activeItem = new Todo();
     // чистит полностью элемент
+    this.itemArray = new Todo();
     this.editMode = false;
   }
   onAddListItem() {

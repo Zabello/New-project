@@ -1,8 +1,8 @@
 <ul>
 
   <li *ngFor='let todo of todos' class="onMargin">{{ todo.title }}
-    <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Delete</button>
-    <button *ngIf="todo.id!==currentEditItem.id" type="button" class="btn btn-primary" (click)='onEdit(todo)'>Edit</button>
+    <button type="button" class="btn btn-primary" (click)="onDelete(todo)">Удалить</button>
+    <button *ngIf="todo.id!==currentEditItem.id" type="button" class="btn btn-primary" (click)='onEdit(todo)'>Изменить</button>
 
   </li>
 
