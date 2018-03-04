@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 export class TodoEditComponent implements OnInit {
   @Input() todo: Todo = new Todo();
   // принимает значение пременной из Input
-  @Input() itemuparray: Todo = new Todo();
+  @Input() itemdemo: Todo = new Todo();
 
   @Output() add: EventEmitter<Todo> = new EventEmitter<Todo>();
   // отправляет событие в главный компанент

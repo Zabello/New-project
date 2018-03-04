@@ -9,7 +9,7 @@
   <div class="row onPad">
 
     <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-      <app-todo-edit *ngIf="editMode" [itemuparray]='itemArray' [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)'
+      <app-todo-edit *ngIf="editMode" [itemdemo]='itemArray' [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)'
         (clear)='onClearItem($event)' (cancel)='onCancelItem($event)' (addlist)='onAddListItem($event)'></app-todo-edit>
 
     </div>
