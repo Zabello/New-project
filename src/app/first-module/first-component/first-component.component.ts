@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 export class FirstComponentComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   editMode: boolean = false;
+  // переменная для установки значения положения кнопки
   todosList: Todo[] = [];
   // переменная в которой хранится значения массива
   activeItem: Todo = new Todo();
@@ -28,6 +29,7 @@ export class FirstComponentComponent implements OnInit {
     this.todosList.push(todo);
     // отправляет переменную в todolist
     this.todosList.push(todo1);
+    // отправляет переменную в todolist
   }
 
   ngOnInit() {}
@@ -35,7 +37,9 @@ export class FirstComponentComponent implements OnInit {
     this.activeItem = _.clone(todo);
     // клонирует значение
     this.itemArray = _.clone(todo);
+    // клонирует значение
     this.editMode = true;
+    // изменяет значение состояния кнопки
   }
 
   onDeleteItem(todo: Todo) {
@@ -64,32 +68,41 @@ export class FirstComponentComponent implements OnInit {
     this.activeItem = new Todo();
     // чистит полностью элемент
     this.itemArray = new Todo();
+    // чистит полностью элемент в строке над инпутом
     this.editMode = false;
+    // изменяет значение состояния кнопки
   }
   onAddListItem() {
     this.editMode = true;
+    // изменяет значение состояния кнопки
   }
-  // не сделал
 
   onAddItem(todo: Todo) {
     if (!_.isUndefined(todo)) {
+      // проверяет на наличие значения в инпуте
       if (!_.isUndefined(todo.id)) {
         const index = _.find(this.todosList, (todo1: Todo) => {
           return todo1.id === todo.id;
         });
+        // проверяет на наличие значения id в инпуте
+        // ищет схожее значение
         if (!_.isUndefined(index)) {
           index.title = todo.title;
         }
-        this.activeItem = new Todo();
+        // присвает новое значение title найденному элементу из массива.
       } else {
         const newElement = new Todo();
         newElement.id = this.getId();
         newElement.title = todo.title;
         this.todosList.push(newElement);
+        // создает новый элемент и пушит его в массив
+        // присваевая ему id и title
       }
     }
     this.activeItem = new Todo();
+    // чистит переменную от значения
     this.editMode = false;
+    // изменяет значение состояния кнопки
   }
   // добовляет элементы
 

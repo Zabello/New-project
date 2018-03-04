@@ -8,19 +8,21 @@ import * as _ from 'lodash';
 })
 export class TodosListComponent implements OnInit {
   @Input() todos: Todo[];
-
-  @Output() edit: EventEmitter<Todo> = new EventEmitter<Todo>();
-
-  @Output() delete: EventEmitter<Todo> = new EventEmitter<Todo>();
+  // принимает значение пременной из Массива
   @Input() currentEditItem: Todo = new Todo();
+  // принимает значение пременной из activeItem
+  @Output() edit: EventEmitter<Todo> = new EventEmitter<Todo>();
+  // отправляет событие в главный компанент
+  @Output() delete: EventEmitter<Todo> = new EventEmitter<Todo>();
   constructor() {}
 
   ngOnInit() {}
   onEdit(todo: Todo) {
     this.edit.emit(todo);
   }
-
+  // создает событие
   onDelete(todo: Todo) {
     this.delete.emit(todo);
   }
+  // создает событие
 }

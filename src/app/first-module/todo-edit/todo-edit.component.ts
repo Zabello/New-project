@@ -10,9 +10,10 @@ import * as _ from 'lodash';
 export class TodoEditComponent implements OnInit {
   @Input() todo: Todo = new Todo();
   // принимает значение пременной из Input
-  @Input() currentEditItem: Todo = new Todo();
   @Input() itemuparray: Todo = new Todo();
+
   @Output() add: EventEmitter<Todo> = new EventEmitter<Todo>();
+  // отправляет событие в главный компанент
   @Output() close: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() clear: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() cancel: EventEmitter<Todo> = new EventEmitter<Todo>();
@@ -24,16 +25,20 @@ export class TodoEditComponent implements OnInit {
     if (!_.isEmpty(this.todo)) {
       this.add.emit(this.todo);
     }
+    // создает событие и проверяет его на значение
   }
   onClear() {
     if (!_.isEmpty(this.todo)) {
       this.clear.emit(this.todo);
     }
+    // создает событие и проверяет его на значение
   }
   onCancel() {
     this.cancel.emit(this.todo);
   }
+  // создает событие
   onClose() {
     this.close.emit(this.todo);
   }
+  // создает событие
 }
