@@ -2,19 +2,21 @@
   <div class="row">
     <div class="clform col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div *ngIf="!editMode" class="onMargin">
+        <!-- при значении editMode = folse, кнопка демонстрируется, при true скрывается -->
         <button type="button" class="btn btn-primary " (click)='onAddListItem()'>Добавить</button>
+        <!-- click вызывает функцию onAddListItem -->
       </div>
     </div>
   </div>
   <div class="row onPad">
 
     <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-      <app-todo-edit *ngIf="editMode" [itemdemo]='itemArray' [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)'
-        (clear)='onClearItem($event)' (cancel)='onCancelItem($event)' (addlist)='onAddListItem($event)'></app-todo-edit>
-
+      <app-todo-edit *ngIf="editMode" [todo]='activeItem' (add)='onAddItem($event)' (close)='onCloseItem($event)' (clear)='onClearItem($event)'
+        (cancel)='onCancelItem($event)' (addlist)='onAddListItem($event)'></app-todo-edit>
+      <!-- [todo]='activeItem' односторонняя привязка, отправляет значение в дочернюю компаненту -->
     </div>
     <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-      <app-todos-list [currentEditItem]="activeItem" [todos]="todosList" (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'>
+      <app-todos-list [todos]="todosList" [todo]='activeItem' (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'>
       </app-todos-list>
 
     </div>

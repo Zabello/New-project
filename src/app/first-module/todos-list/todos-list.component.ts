@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  Input,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 import { Todo } from '../first-component/todo';
 import * as _ from 'lodash';
 @Component({
@@ -6,10 +14,12 @@ import * as _ from 'lodash';
   templateUrl: './todos-list.component.html',
   styleUrls: ['./todos-list.component.css']
 })
-export class TodosListComponent implements OnInit {
+export class TodosListComponent implements OnInit, OnChanges {
   @Input() todos: Todo[];
+  @Input() todo: Todo = new Todo();
+  currentEditItem: Todo = new Todo();
   // принимает значение пременной из Массива
-  @Input() currentEditItem: Todo = new Todo();
+  // @Input() currentEditItem: Todo = new Todo();
   // принимает значение пременной из activeItem
   @Output() edit: EventEmitter<Todo> = new EventEmitter<Todo>();
   // отправляет событие в главный компанент
@@ -17,6 +27,9 @@ export class TodosListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges) {
+    this.currentEditItem = _.clone(this.todo);
+  }
   onEdit(todo: Todo) {
     this.edit.emit(todo);
   }

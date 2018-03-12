@@ -14,8 +14,6 @@ export class FirstComponentComponent implements OnInit {
   // переменная в которой хранится значения массива
   activeItem: Todo = new Todo();
   // переменная с которой мы работаем
-  itemArray: Todo = new Todo();
-  // переменная в которой хронится значение для вывода значения выбранного элемента
   constructor() {
     const todo = new Todo();
     // создает переменную типа Todo
@@ -36,8 +34,6 @@ export class FirstComponentComponent implements OnInit {
   onEditItem(todo: Todo) {
     this.activeItem = _.clone(todo);
     // клонирует значение
-    this.itemArray = _.clone(todo);
-    // клонирует значение
     this.editMode = true;
     // изменяет значение состояния кнопки
   }
@@ -46,6 +42,7 @@ export class FirstComponentComponent implements OnInit {
     _.remove(this.todosList, (todo1: Todo) => {
       return todo1.id === todo.id;
     });
+    this.activeItem = new Todo();
     // ищет значение по массиву и после нахождения совапдения, удаляет его
   }
   onCancelItem(todo: Todo) {
@@ -67,8 +64,6 @@ export class FirstComponentComponent implements OnInit {
   onCloseItem() {
     this.activeItem = new Todo();
     // чистит полностью элемент
-    this.itemArray = new Todo();
-    // чистит полностью элемент в строке над инпутом
     this.editMode = false;
     // изменяет значение состояния кнопки
   }
@@ -100,9 +95,8 @@ export class FirstComponentComponent implements OnInit {
       }
     }
     this.activeItem = new Todo();
-    // чистит переменную от значения
+
     this.editMode = false;
-    // изменяет значение состояния кнопки
   }
   // добовляет элементы
 

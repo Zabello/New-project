@@ -1,7 +1,7 @@
 <div>
   <!-- [hidden]="!todo.id" -->
   <div>
-    <span>id={{itemdemo.id}}, title={{itemdemo.title}}</span>
+    <span>id={{activeItem.id}}, title={{activeItem.title}}</span>
     <!-- принемает значение из itemdemo -->
   </div>
 
@@ -10,7 +10,7 @@
     <input type="text" [(ngModel)]="todo.title">
   </div>
   <!-- установлена двухстороняя связь для работы с знвчением переменной -->
-  <button [disabled]="!todo.title || !(todo.title !==itemuparray.title)" type="button" class="btn btn-primary" (click)='onAdd()'>Сохранить</button>
+  <button [disabled]="!todo.title || todo.title == activeItem.title" type="button" class="btn btn-primary" (click)='onAdd()'>Сохранить</button>
   <button type="button" class="btn btn-primary" (click)='onClear()'>Очистить</button>
   <button type="button" class="btn btn-primary" (click)='onCancel()'>Отменить</button>
   <button type="button" class="btn btn-primary" (click)='onClose()'>Закрыть</button>
