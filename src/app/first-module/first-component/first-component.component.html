@@ -16,7 +16,7 @@
       <!-- [todo]='activeItem' односторонняя привязка, отправляет значение в дочернюю компаненту -->
     </div>
     <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-      <app-todos-list [todos]="todosList" [todo]='activeItem' (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'>
+      <app-todos-list [todos]="todos" [todo]='activeItem' (edit)='onEditItem($event)' (delete)='onDeleteItem($event)'>
       </app-todos-list>
 
     </div>

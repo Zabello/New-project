@@ -5,10 +5,16 @@ import { FormComponent } from './first-component/form/form.component';
 import { FormsModule } from '@angular/forms';
 import { TodosListComponent } from './todos-list/todos-list.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { TodoService } from './services/todo.service';
 @NgModule({
   imports: [CommonModule, FormsModule],
-  declarations: [FirstComponentComponent, FormComponent, TodosListComponent, TodoEditComponent],
-  providers: [],
+  declarations: [
+    FirstComponentComponent,
+    FormComponent,
+    TodosListComponent,
+    TodoEditComponent
+  ],
+  providers: [TodoService],
   exports: [FirstComponentComponent]
 })
 export class FirstModuleModule {}
