@@ -33,12 +33,11 @@ export class FirstComponentComponent implements OnInit {
   }
 
   onDeleteItem(todo: Todo) {
-    this.todoService.delete(todo);
+    if (confirm('Вы уверены, что хотите удалить?')) {
+      this.todoService.delete(todo);
+    }
+
     this.activeItem = new Todo();
-    // _.remove(this.todosList, (todo1: Todo) => {
-    //   return todo1.id === todo.id;
-    // });
-    // this.activeItem = new Todo();
   }
   onCancelItem(todo: Todo) {
     if (todo.id) {
