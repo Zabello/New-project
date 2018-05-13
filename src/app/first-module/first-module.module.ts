@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { TodosListComponent } from './todos-list/todos-list.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { TodoService } from './services/todo.service';
+import { NewFeaturePipe } from './new-feature.pipe';
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: [
     FirstComponentComponent,
     FormComponent,
     TodosListComponent,
-    TodoEditComponent
+    TodoEditComponent,
+    NewFeaturePipe
   ],
   providers: [TodoService],
   exports: [FirstComponentComponent]

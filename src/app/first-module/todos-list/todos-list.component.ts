@@ -8,6 +8,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Todo } from '../first-component/todo';
+// import { NewFeaturePipe } from '../new-feature.pipe';
 import * as _ from 'lodash';
 @Component({
   selector: 'app-todos-list',
